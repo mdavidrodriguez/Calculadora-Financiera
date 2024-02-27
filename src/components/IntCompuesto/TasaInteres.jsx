@@ -1,23 +1,29 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const TasaInteres = () => {
-  const [capital, setCapital] = useState(200000);
-  const [montoCompuesto, setMontoCompuesto] = useState(237537);
-  const [periodos, setPeriodos] = useState(5);
-  const [tasaInteres, setTasaInteres] = useState(0);
+  const [capital, setCapital] = useState("");
+  const [montoCompuesto, setMontoCompuesto] = useState("");
+  const [periodos, setPeriodos] = useState("");
+  const [tasaInteres, setTasaInteres] = useState("");
 
   const calcularTasaInteres = (e) => {
     e.preventDefault();
+    if ([capital, montoCompuesto, periodos].includes("")) {
+      toast.error("Todos los campos son Obligatorios");
+      return;
+    }
     const i = Math.pow(montoCompuesto / capital, 1 / periodos) - 1;
     setTasaInteres(i.toFixed(3));
   };
 
   return (
-    <div className="contenedor md:flex-row flex-col flex bg-gray-200 min-h-screen">
+    <>
       <form
         onSubmit={calcularTasaInteres}
         className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
       >
+        <ToastContainer />
         <div className="my-2">
           <label className="uppercase text-gray-600 block text-xl font-bold">
             Capital inicial:
@@ -25,6 +31,7 @@ const TasaInteres = () => {
           <input
             className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
             type="number"
+            placeholder="Capital Inicial"
             value={capital}
             onChange={(e) => setCapital(parseFloat(e.target.value))}
           />
@@ -36,6 +43,7 @@ const TasaInteres = () => {
           <input
             className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
             type="number"
+            placeholder="Monto Compuesto Final"
             value={montoCompuesto}
             onChange={(e) => setMontoCompuesto(parseFloat(e.target.value))}
           />
@@ -48,6 +56,7 @@ const TasaInteres = () => {
             className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
             type="number"
             value={periodos}
+            placeholder="Nro periodos"
             onChange={(e) => setPeriodos(parseInt(e.target.value))}
           />
         </div>
@@ -58,9 +67,14 @@ const TasaInteres = () => {
         >
           Calcular
         </button>
-        <p>La tasa de interés es: {tasaInteres}%</p>
       </form>
-    </div>
+      {tasaInteres && (
+        <div className="md:w-2/6 md:h-1/2 my-10 bg-white shadow p-5 rounded-lg mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
+          <p>La tasa de interés es: {tasaInteres}%</p>
+          <p>La tasa de interés es: {(tasaInteres * 100).toFixed(2)}%</p>
+        </div>
+      )}
+    </>
   );
 };
 
