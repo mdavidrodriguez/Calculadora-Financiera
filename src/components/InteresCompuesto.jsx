@@ -6,6 +6,9 @@ import TasaInteres from "./IntCompuesto/TasaInteres";
 import CapitalInicial from "./IntCompuesto/CapitalInicial";
 import { useEffect } from "react";
 import MontoCompuesto from "./IntCompuesto/MontoCompuesto";
+import MontoConPeriodoFraccionario from "./IntCompuesto/MontoConPeriodoFraccionario";
+import MontoConCambioTasaInteres from "./IntCompuesto/MontoConCambioTasaInteres";
+import DepositoAdicional from "./IntCompuesto/DepositoAdicional";
 
 const InteresCompuesto = () => {
   const [seleccion, setSeleccion] = useState("monto");
@@ -34,16 +37,39 @@ const InteresCompuesto = () => {
           <option className="bg-white text-black" value="tasainteres">
             Tasa de Interes
           </option>
+          <option className="bg-white text-black" value="depositoadicional">
+            Deposito Adicional
+          </option>
+          <option
+            className="bg-white text-black"
+            value="montoperiodofraccionario"
+          >
+            Monto Periodo Fraccionario
+          </option>
+          <option
+            className="bg-white text-black"
+            value="montocambiotasainteres"
+          >
+            Monto Cambio con tasa de Interes
+          </option>
         </select>
       </div>
 
       <div className="contenedor md:flex-row flex-col flex bg-gray-200 min-h-screen ">
-        {/* <MontoCompuesto /> */}
+        {/* <DepositoAdicional /> */}
+
         {seleccion === "nroperiodos" && <NumeroPeriodos />}
         {seleccion === "monto" && <MontoCompuesto />}
         {seleccion === "capitalInicial" && <CapitalInicial />}
         {seleccion === "capitalizacion" && <Capitalizacion />}
         {seleccion === "tasainteres" && <TasaInteres />}
+        {seleccion === "montoperiodofraccionario" && (
+          <MontoConPeriodoFraccionario />
+        )}
+        {seleccion === "montocambiotasainteres" && (
+          <MontoConCambioTasaInteres />
+        )}
+        {seleccion === "depositoadicional" && <DepositoAdicional />}
       </div>
     </>
   );
