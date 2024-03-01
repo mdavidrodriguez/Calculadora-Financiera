@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import Spinner from "../../layout/Spinner";
 
 const CapitalInicial = () => {
   const [montoCompuesto, setMontoCompuesto] = useState("");
   const [tasaInteres, setTasaInteres] = useState("");
   const [periodos, setPeriodos] = useState("");
   const [capitalInicial, setCapitalInicial] = useState("");
+  const [cargando, setCargando] = useState(false);
 
   const calcularCapitalInicial = (e) => {
     e.preventDefault();
+    setCapitalInicial("");
     if ([montoCompuesto, tasaInteres, periodos].includes("")) {
       toast.error("Todos los Campos son Obligatorios");
       return;
@@ -16,7 +19,11 @@ const CapitalInicial = () => {
     const i = parseFloat(tasaInteres) / 100;
     const n = parseInt(periodos);
     const C = parseFloat(montoCompuesto) / Math.pow(1 + i, n);
-    setCapitalInicial(C.toFixed(2));
+    setCargando(true);
+    setTimeout(() => {
+      setCargando(false);
+      setCapitalInicial(C.toFixed(2));
+    }, 1000);
   };
 
   return (
@@ -67,6 +74,11 @@ const CapitalInicial = () => {
           Calcular
         </button>
       </form>
+      {cargando && (
+        <div className="md:w-2/6 md:h-1/2 my-10  mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
+          <Spinner />
+        </div>
+      )}
       {capitalInicial && (
         <div className="md:w-2/6 md:h-1/2 my-10 bg-white shadow p-5 rounded-lg mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
           <p>El capital inicial fue: ${capitalInicial}</p>
