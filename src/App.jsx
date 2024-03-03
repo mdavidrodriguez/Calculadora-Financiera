@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import InteresSimple from "./components/InteresSimple";
 import InteresCompuesto from "./components/InteresCompuesto";
 import Anualidades from "./components/Anualidades";
+import Footer from "./layout/Footer";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Route path="compuesto" element={<InteresCompuesto />} />
         <Route path="anualidades" element={<Anualidades />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

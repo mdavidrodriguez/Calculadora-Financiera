@@ -9,6 +9,7 @@ import MontoCompuesto from "./IntCompuesto/MontoCompuesto";
 import MontoConPeriodoFraccionario from "./IntCompuesto/MontoConPeriodoFraccionario";
 import MontoConCambioTasaInteres from "./IntCompuesto/MontoConCambioTasaInteres";
 import DepositoAdicional from "./IntCompuesto/DepositoAdicional";
+import ExplicacionFormula from "./IntCompuesto/ExplicacionFormula";
 
 const InteresCompuesto = () => {
   const [seleccion, setSeleccion] = useState("monto");
@@ -25,11 +26,11 @@ const InteresCompuesto = () => {
           <option className="bg-white text-black" value="monto">
             Monto Compuesto
           </option>
-          <option className="bg-white text-black" value="capitalInicial">
-            Capital Inicial
+          <option className="bg-white text-black" value="valorpresente">
+            Valor Presente
           </option>
           <option className="bg-white text-black" value="capitalizacion">
-            Capitalización
+            Valor Final (Monto Compuesto)
           </option>
           <option className="bg-white text-black" value="nroperiodos">
             Numero de Periodos
@@ -57,10 +58,9 @@ const InteresCompuesto = () => {
 
       <div className="contenedor md:flex-row flex-col flex bg-gray-200 min-h-screen ">
         {/* <DepositoAdicional /> */}
-
         {seleccion === "nroperiodos" && <NumeroPeriodos />}
         {seleccion === "monto" && <MontoCompuesto />}
-        {seleccion === "capitalInicial" && <CapitalInicial />}
+        {seleccion === "valorpresente" && <CapitalInicial />}
         {seleccion === "capitalizacion" && <Capitalizacion />}
         {seleccion === "tasainteres" && <TasaInteres />}
         {seleccion === "montoperiodofraccionario" && (
