@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ExplicacionFormula from "./ExplicacionFormula";
+import { formatter } from "../../helpers/Formater";
 
 const DepositoAdicional = () => {
   const [capitalInicial, setCapitalInicial] = useState(0);
@@ -118,7 +119,7 @@ const DepositoAdicional = () => {
       </div>
       {resultado !== 0 && (
         <div className="md:w-2/6 md:h-1/2 my-10 bg-white shadow p-5 rounded-lg mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
-          <h3>El importe final es: {resultado}</h3>
+          <h3>El importe final es: {formatter.format(resultado)}</h3>
         </div>
       )}
     </>

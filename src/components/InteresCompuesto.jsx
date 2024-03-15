@@ -9,7 +9,7 @@ import MontoCompuesto from "./IntCompuesto/MontoCompuesto";
 import MontoConPeriodoFraccionario from "./IntCompuesto/MontoConPeriodoFraccionario";
 import MontoConCambioTasaInteres from "./IntCompuesto/MontoConCambioTasaInteres";
 import DepositoAdicional from "./IntCompuesto/DepositoAdicional";
-import ExplicacionFormula from "./IntCompuesto/ExplicacionFormula";
+import InteresEstimado from "./IntCompuesto/InteresEstimado";
 
 const InteresCompuesto = () => {
   const [seleccion, setSeleccion] = useState("monto");
@@ -53,6 +53,9 @@ const InteresCompuesto = () => {
           >
             Monto Cambio con tasa de Interes
           </option>
+          <option className="bg-white text-black" value="montoestimado">
+            Interes Compuesto con Valor Estimado
+          </option>
         </select>
       </div>
 
@@ -70,6 +73,7 @@ const InteresCompuesto = () => {
           <MontoConCambioTasaInteres />
         )}
         {seleccion === "depositoadicional" && <DepositoAdicional />}
+        {seleccion === "montoestimado" && <InteresEstimado />}
       </div>
     </>
   );

@@ -44,6 +44,7 @@ const MontoConCambioTasaInteres = () => {
             <input
               className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
               type="number"
+              placeholder="Ingrese capital inicial"
               value={capitalInicial}
               onChange={(e) => setCapitalInicial(parseFloat(e.target.value))}
             />
@@ -55,6 +56,7 @@ const MontoConCambioTasaInteres = () => {
             <input
               className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
               type="number"
+              placeholder="Ingrese tasa de interés inicial"
               value={tasaInicial}
               onChange={(e) => setTasaInicial(parseFloat(e.target.value))}
             />
@@ -66,6 +68,7 @@ const MontoConCambioTasaInteres = () => {
             <input
               className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
               type="number"
+              placeholder="Ingrese tasa de interés nueva"
               value={tasaNueva}
               onChange={(e) => setTasaNueva(parseFloat(e.target.value))}
             />
@@ -77,6 +80,7 @@ const MontoConCambioTasaInteres = () => {
             <input
               className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
               type="number"
+              placeholder="Ingrese tiempo inicial en meses"
               value={tiempoInicialEnMeses}
               onChange={(e) =>
                 setTiempoInicialEnMeses(parseInt(e.target.value))
@@ -88,6 +92,7 @@ const MontoConCambioTasaInteres = () => {
               Tiempo cambio en meses:
             </label>
             <input
+              placeholder="Ingrese tiempo cambio en meses"
               className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
               type="number"
               value={tiempoCambioEnMeses}
