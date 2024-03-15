@@ -22,10 +22,10 @@ const InteresSimple = () => {
           onChange={(e) => setSeleccion(e.target.value)}
         >
           <option className="bg-white text-black" value="interessimple">
-            Interes Simple 
+            Interes Simple
           </option>
           <option className="bg-white text-black" value="capitalInicial">
-            Capital 
+            Capital
           </option>
           <option className="bg-white text-black" value="tasainteres">
             Tasa de Interes
@@ -39,21 +39,19 @@ const InteresSimple = () => {
           <option className="bg-white text-black" value="monto">
             Monto
           </option>
-          
         </select>
       </div>
-      
+
       <div className="contenedor md:flex-row flex-col flex bg-gray-200 min-h-screen ">
-            {/* <DepositoAdicional /> */}
+        {/* <DepositoAdicional /> */}
 
-            {seleccion === "monto" && <Monto/>}
-            {seleccion === "interessimple" && <Simple/>}
-            {seleccion === "capitalInicial" && <CapitalInicial />}
-            {seleccion === "tiempo" && <Tiempo/>}
-            {seleccion === "tasainteres" && <TasaInteres/>}
-            {seleccion === "valorpresente" && <ValorPresente/>}
-
-            {seleccion === "depositoadicional" && <DepositoAdicional />}
+        {seleccion === "monto" && <Monto />}
+        {seleccion === "interessimple" && <Simple />}
+        {seleccion === "capitalInicial" && <CapitalInicial />}
+        {seleccion === "tiempo" && <Tiempo />}
+        {seleccion === "tasainteres" && <TasaInteres />}
+        {seleccion === "valorpresente" && <ValorPresente />}
+        {seleccion === "depositoadicional" && <DepositoAdicional />}
       </div>
     </>
   );

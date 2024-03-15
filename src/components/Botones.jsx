@@ -29,7 +29,7 @@ const Botones = () => {
           <div className="mb-5">
             <input
               type="button"
-              value={"Anualidades"}
+              value={"Tasa de Interes"}
               className="bg-orange-500 w-full text-xl p-5  border-4 border-blue-900 text-white uppercase font-extrabold rounded-full hover:bg-orange-600 cursor-pointer transition-colors"
             />
           </div>

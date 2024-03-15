@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Capitalizacion from "./IntCompuesto/Capitalizacion";
 import NumeroPeriodos from "./IntCompuesto/NumeroPeriodos";
 import TasaInteres from "./IntCompuesto/TasaInteres";
 import CapitalInicial from "./IntCompuesto/CapitalInicial";
-import { useEffect } from "react";
 import MontoCompuesto from "./IntCompuesto/MontoCompuesto";
 import MontoConPeriodoFraccionario from "./IntCompuesto/MontoConPeriodoFraccionario";
 import MontoConCambioTasaInteres from "./IntCompuesto/MontoConCambioTasaInteres";
@@ -56,11 +55,13 @@ const InteresCompuesto = () => {
           <option className="bg-white text-black" value="montoestimado">
             Interes Compuesto con Valor Estimado
           </option>
+          {/* <option className="bg-white text-black" value="finalcomp">
+            Interes Compuesto final
+          </option> */}
         </select>
       </div>
 
       <div className="contenedor md:flex-row flex-col flex bg-gray-200 min-h-screen ">
-        {/* <DepositoAdicional /> */}
         {seleccion === "nroperiodos" && <NumeroPeriodos />}
         {seleccion === "monto" && <MontoCompuesto />}
         {seleccion === "valorpresente" && <CapitalInicial />}
@@ -74,6 +75,7 @@ const InteresCompuesto = () => {
         )}
         {seleccion === "depositoadicional" && <DepositoAdicional />}
         {seleccion === "montoestimado" && <InteresEstimado />}
+        {/* {seleccion === "finalcomp" && <CompoundInterestCalculator />} */}
       </div>
     </>
   );
