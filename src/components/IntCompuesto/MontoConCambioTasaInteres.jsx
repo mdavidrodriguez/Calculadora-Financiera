@@ -28,10 +28,28 @@ const MontoConCambioTasaInteres = () => {
     <>
       <div className="md:w-1/2 md:h-auto">
         <ExplicacionFormula>
-          <p>Capital inicial</p>
-          <p>Tasa de interés inicial</p>
-          <p>Tasa de interés modificada</p>
-          <p>Período de tiempo</p>
+          <h2 className="text-2xl font-bold">
+            Monto con cambio de tasa de interés
+          </h2>
+          <p className="mt-4">
+            El monto final de un capital inicial es calculado a partir de la
+            fórmula:
+          </p>
+          <p className="mt-4">
+            <strong>
+              Monto final = Capital inicial * (1 + Tasa de interés inicial) ^
+              Tiempo inicial
+            </strong>
+          </p>
+          <p className="mt-4">
+            El capital final es calculado a partir de la fórmula:
+          </p>
+          <p className="mt-4">
+            <strong>
+              Monto final = Monto inicial * (1 + Tasa de interés nueva) ^ Tiempo
+              cambio
+            </strong>
+          </p>
         </ExplicacionFormula>
         <form
           className=" my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
