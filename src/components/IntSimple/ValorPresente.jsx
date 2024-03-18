@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
+import ExplicacionFormula from "./ExplicacionFormula";
 
 const ValorPresente = () => {
   const [ValorFuturo, setValorFuturo] = useState("");
@@ -22,10 +22,21 @@ const ValorPresente = () => {
 
   return (
     <>
-      <form
-        onSubmit={calcularValorPresente}
-        className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
-      >
+       <div className="md:w-1/2 md:h-auto">
+        <ExplicacionFormula>
+        El "valor presente" en el contexto de los intereses simples 
+        se refiere al valor actual de una suma de dinero que se recibirá o pagará en el futuro, después de tomar en cuenta los intereses que se acumularán o se pagarán durante un período de tiempo determinado.
+          <p>* VF es el valor futuro.</p>
+          <p>
+            * % es la tasa de interés (o tasa de descuento)
+            formato decimal.
+          </p>
+          <p>* t es el tiempo.</p>
+        </ExplicacionFormula>
+          <form
+            onSubmit={calcularValorPresente}
+            className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
+          >
         <ToastContainer />
         <div className="my-2">
           <label className="uppercase text-gray-600 block text-xl font-bold">
@@ -67,7 +78,8 @@ const ValorPresente = () => {
         />
         
         
-      </form>
+        </form>
+      </div>
       {ValorPresente && (
         <div className="md:w-2/6 md:h-1/2 my-10 bg-white shadow p-5 rounded-lg mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
           <p>El Valor Presente es: ${ValorPresente}</p>

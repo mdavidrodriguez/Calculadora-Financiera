@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import ExplicacionFormula from "./ExplicacionFormula";
 
 const TasaInteres = () => {
     const [InteresSimple, setInteresSimple] = useState("");
@@ -21,10 +22,20 @@ const TasaInteres = () => {
   
     return (
       <>
-        <form
-          onSubmit={calcularTasaInteres}
-          className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
-        >
+       <div className="md:w-1/2 md:h-auto">
+          <ExplicacionFormula>
+          La tasa de interés (i) en el contexto de los intereses simples 
+          se refiere al porcentaje del capital inicial que se acumula como intereses durante un período de tiempo determinado
+            <p>* I es el interes simple.</p>
+            <p>
+              * C es el capital inicial.
+            </p>
+            <p>* t es el tiempo.</p>
+          </ExplicacionFormula>
+          <form
+            onSubmit={calcularTasaInteres}
+            className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
+          >
           <ToastContainer />
           <div className="my-2">
             <label className="uppercase text-gray-600 block text-xl font-bold">
@@ -66,7 +77,8 @@ const TasaInteres = () => {
           />
           
           
-        </form>
+          </form>
+        </div>
         {tasaInteres && (
           <div className="md:w-2/6 md:h-1/2 my-10 bg-white shadow p-5 rounded-lg mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
             <p>La tasa de interes fue: ${tasaInteres}</p>
