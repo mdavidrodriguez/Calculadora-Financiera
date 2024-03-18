@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { formatter } from "../../helpers/Formater";
+import ExplicacionFormula from "./ExplicacionFormula";
 
 const CompoundInterestCalculator = () => {
   const [capital, setCapital] = useState(0);
@@ -32,6 +33,25 @@ const CompoundInterestCalculator = () => {
   return (
     <>
       <div className="md:w-1/2 md:h-auto">
+        <ExplicacionFormula>
+          <p>
+            El capitalización es el proceso de acumular el capital en un
+            determinado tiempo, en función de la tasa de interés y el periodo de
+            capitalización.
+          </p>
+          <p>
+            El cálculo del capital acumulado se realiza utilizando la fórmula:
+          </p>
+          <p>
+            <strong>
+              <em>
+                Capital acumulado = Capital inicial * (1 + Tasa de interés / 100
+                / Periodos de capitalización) ^ (Periodos de capitalización *
+                Tiempo)
+              </em>
+            </strong>
+          </p>
+        </ExplicacionFormula>
         <form
           onSubmit={calculateCompoundInterest}
           className="my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
