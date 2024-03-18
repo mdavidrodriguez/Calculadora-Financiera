@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
+import ExplicacionFormula from "./ExplicacionFormula";
 
 const CapitalInicial = () => {
   const [InteresSimple, setInteresSimple] = useState("");
@@ -22,10 +22,20 @@ const CapitalInicial = () => {
 
   return (
     <>
-      <form
-        onSubmit={calcularCapitalInicial}
-        className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
-      >
+      <div className="md:w-1/2 md:h-auto">
+        <ExplicacionFormula>
+           El Capital (C) se refiere a la cantidad de dinero que se invierte o se presta al comienzo de un período determinado
+          <p>* I es el monto de interes simple.</p>
+          <p>
+            * % es la tasa de interés (o tasa de descuento)
+            formato decimal.
+          </p>
+          <p>* t es el tiempo.</p>
+        </ExplicacionFormula>
+        <form
+          onSubmit={calcularCapitalInicial}
+          className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
+        >
         <ToastContainer />
         <div className="my-2">
           <label className="uppercase text-gray-600 block text-xl font-bold">
@@ -65,9 +75,9 @@ const CapitalInicial = () => {
           className="bg-orange-600 w-full text-white p-3 uppercase font-bold rounded-md hover:bg-orange-700 cursor-pointer transition-colors mt-2"
           value="Calcular"
         />
-        
-        
-      </form>
+       </form>
+      </div>  
+     
       {capitalInicial && (
         <div className="md:w-2/6 md:h-1/2 my-10 bg-white shadow p-5 rounded-lg mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
           <p>El capital inicial fue: ${capitalInicial}</p>
@@ -76,7 +86,5 @@ const CapitalInicial = () => {
     </>
   );
 };
-
 export default CapitalInicial;
-
 

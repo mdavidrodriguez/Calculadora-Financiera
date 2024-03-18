@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import ExplicacionFormula from "./ExplicacionFormula";
 
 const Tiempo = () => {
     const [ValorFuturo, setValorFuturo] = useState("");
@@ -21,10 +22,21 @@ const Tiempo = () => {
   
     return (
       <>
-        <form
-          onSubmit={calcularTiempo}
-          className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
-        >
+        <div className="md:w-1/2 md:h-auto">
+          <ExplicacionFormula>
+          el tiempo (t) se refiere al período de tiempo durante el cual 
+          se aplica la tasa de interés al capital inicial para calcular los intereses ganados o pagados
+            <p>
+              * VF es el valor futuro.
+            </p>
+            <p>* VP es el valor presente.</p>
+            <p>* i es la tasa de interés (o tasa de descuento)
+            formato decimal.</p>
+          </ExplicacionFormula>
+          <form
+            onSubmit={calcularTiempo}
+            className="md:w-1/2 md:h-auto my-10 bg-white shadow rounded-lg p-10 mx-5 text-start"
+          >
           <ToastContainer />
           <div className="my-2">
             <label className="uppercase text-gray-600 block text-xl font-bold">
@@ -66,7 +78,8 @@ const Tiempo = () => {
           />
           
           
-        </form>
+         </form>
+         </div>
         {tiempo && (
           <div className="md:w-2/6 md:h-1/2 my-10 bg-white shadow p-5 rounded-lg mx-5 lg:mt-52 md:mt-52 mt-0 text-center">
             <p>El tiempo fue de: {tiempo}</p>
